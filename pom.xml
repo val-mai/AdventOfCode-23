@@ -18,6 +18,6 @@
     </dependencies>
 
     <modules>
-        <module>day1_2023</module>
+        <module>day1</module>
     </modules>
 </project>
