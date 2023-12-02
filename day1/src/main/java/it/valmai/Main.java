@@ -1,8 +1,5 @@
 package it.valmai;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -10,11 +7,7 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
 
-        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        InputStream is = classloader.getResourceAsStream("input.txt");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-        List<String> stringList = reader.lines().toList();
+        List<String> stringList = AocInputReader.getLinesFromInput("input.txt");
 
         Map<String, String> numbersMap = Map.of(
                 "one", "1", "two", "2",
