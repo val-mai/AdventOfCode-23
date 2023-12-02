@@ -7,3 +7,8 @@ Advent of Code is an Advent calendar of small programming puzzles for a variety 
 You don't need a computer science background to participate - just a little programming knowledge and some problem solving skills will get you pretty far. Nor do you need a fancy computer; every problem has a solution that completes in at most 15 seconds on ten-year-old hardware.
 
 Check-out more on https://adventofcode.com/  #AdventOfCode
+
+Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
+
+--- Day 1: Trebuchet?!      
+--- Day 2: Cube Conundrum   
