@@ -40,8 +40,7 @@ public class GearRatios {
                                 // Check gears by index (part 2)
                                 if (lines.get(y).charAt(x) == '*') {
                                     int gearIndex = y * lines.get(0).length() + x;
-                                    List<Integer> gearNumbers = Arrays.asList(0,0);
-                                    gears.putIfAbsent(gearIndex, gearNumbers);
+                                    gears.putIfAbsent(gearIndex, Arrays.asList(0,0));
                                     if (gears.get(gearIndex).get(0) == 0) {
                                         gears.get(gearIndex).set(0, currentNumber);
                                     } else {
