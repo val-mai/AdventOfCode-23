@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class Main {
+public class Trebuchet {
     public static void main(String[] args) {
 
         List<String> stringList = AocInputReader.getLinesFromInput("input.txt");

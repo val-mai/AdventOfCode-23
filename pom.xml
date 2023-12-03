@@ -23,8 +23,9 @@
     </dependencies>
 
     <modules>
+        <module>utils</module>
         <module>day1</module>
         <module>day2</module>
-        <module>utils</module>
+        <module>day3</module>
     </modules>
 </project>
