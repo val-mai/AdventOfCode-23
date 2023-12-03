@@ -12,3 +12,4 @@ Something is wrong with global snow production, and you've been selected to take
 
 --- Day 1: Trebuchet?!      
 --- Day 2: Cube Conundrum   
+--- Day 3: Gear Ratios   
