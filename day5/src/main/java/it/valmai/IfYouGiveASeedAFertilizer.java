@@ -11,7 +11,6 @@ public class IfYouGiveASeedAFertilizer {
         List<List<String>> instructions = AocInputReader.divideList(lines);
         Map<String, List<String>> instructionsMap = new HashMap<>();
         List<Long> seeds = AocInputReader.extractLongs(instructions.get(0).get(0));
-        Long minimumLocationPart2 = null;
 
         for (int i = 1; i < instructions.size(); i++) {
             String instruction = instructions.get(i).get(0).replace(" map:", "");
@@ -21,6 +20,8 @@ public class IfYouGiveASeedAFertilizer {
             }
         }
 
+        // Part 2
+        Long minimumLocationPart2 = null;
         for (int i = 0; i < seeds.size(); i += 2) {
             Long currentSeed = seeds.get(i);
             for (int j = 0; j < seeds.get(i + 1); j++) {
@@ -34,6 +35,8 @@ public class IfYouGiveASeedAFertilizer {
                 }
             }
         }
+
+        // Part 1
         List<Long> locations = allProcess(seeds.parallelStream(),instructionsMap).toList();
 
         System.out.println("Location is: " + Collections.min(locations));
