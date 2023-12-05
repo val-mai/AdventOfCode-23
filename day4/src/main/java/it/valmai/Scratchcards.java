@@ -16,8 +16,8 @@ public class Scratchcards {
             int currentLine = Integer.parseInt(card.split(":")[0].replaceAll("\\D", ""));
             String[] numbersSet = card.split(":")[1].split("\\|");
 
-            List<Integer> winningNumbers = extractNumbers(numbersSet[0]);
-            List<Integer> cardNumbers = extractNumbers(numbersSet[1]);
+            List<Integer> winningNumbers = AocInputReader.extractIntegers(numbersSet[0]);
+            List<Integer> cardNumbers = AocInputReader.extractIntegers(numbersSet[1]);
 
             List<Integer> matching = cardNumbers.stream().filter(winningNumbers::contains).toList();
             if (!matching.isEmpty()) points.add((int) Math.pow(2, matching.size() - 1));
@@ -38,9 +38,4 @@ public class Scratchcards {
         System.out.println("Card total is: " + scratchcards.size());
     }
 
-    private static List<Integer> extractNumbers(String input) {
-        Pattern pattern = Pattern.compile("\\d+");
-        Matcher matcher = pattern.matcher(input);
-        return matcher.results().map(match -> Integer.parseInt(match.group())).toList();
-    }
 }
