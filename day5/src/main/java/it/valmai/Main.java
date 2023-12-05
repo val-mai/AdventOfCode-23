@@ -16,7 +16,7 @@ public class Main {
 
         for (int i = 1; i < instructions.size(); i++) {
             String instruction = instructions.get(i).get(0).replace(" map:", "");
-            instructionsMap.putIfAbsent(instruction,new ArrayList<>());
+            instructionsMap.putIfAbsent(instruction, new ArrayList<>());
             for (int j = 1; j < instructions.get(i).size(); j++) {
                 instructionsMap.get(instruction).add(instructions.get(i).get(j));
             }
@@ -26,44 +26,28 @@ public class Main {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
 
-        Map<Long, Long> seedToSoil = new HashMap<>();
-        Map<Long, Long> soilToFertilizer = new HashMap<>();
-        Map<Long, Long> fertilizerToWater = new HashMap<>();
-        Map<Long, Long> waterToLight = new HashMap<>();
-        Map<Long, Long> lightToTemperature = new HashMap<>();
-        Map<Long, Long> temperatureToHumidity = new HashMap<>();
-        Map<Long, Long> humidityToLocation = new HashMap<>();
-
-        processInstructions(instructionsMap, "seed-to-soil", seedToSoil);
-        processInstructions(instructionsMap, "soil-to-fertilizer", soilToFertilizer);
-        processInstructions(instructionsMap, "fertilizer-to-water", fertilizerToWater);
-        processInstructions(instructionsMap, "water-to-light", waterToLight);
-        processInstructions(instructionsMap, "light-to-temperature", lightToTemperature);
-        processInstructions(instructionsMap, "temperature-to-humidity", temperatureToHumidity);
-        processInstructions(instructionsMap, "humidity-to-location", humidityToLocation);
-
         List<Long> locations = seeds.stream()
-                .map(seed -> seedToSoil.getOrDefault(seed, seed))
-                .map(seed -> soilToFertilizer.getOrDefault(seed, seed))
-                .map(seed -> fertilizerToWater.getOrDefault(seed, seed))
-                .map(seed -> waterToLight.getOrDefault(seed, seed))
-                .map(seed -> lightToTemperature.getOrDefault(seed, seed))
-                .map(seed -> temperatureToHumidity.getOrDefault(seed, seed))
-                .map(seed -> humidityToLocation.getOrDefault(seed, seed))
+                .map(seed -> processStep(instructionsMap, "seed-to-soil", seed))
+                .map(soil -> processStep(instructionsMap, "soil-to-fertilizer", soil))
+                .map(fertilizer -> processStep(instructionsMap, "fertilizer-to-water", fertilizer))
+                .map(water -> processStep(instructionsMap, "water-to-light", water))
+                .map(light -> processStep(instructionsMap, "light-to-temperature", light))
+                .map(temperature -> processStep(instructionsMap, "temperature-to-humidity", temperature))
+                .map(humidity -> processStep(instructionsMap, "humidity-to-location", humidity))
                 .toList();
 
-
         System.out.println("Location is: " + Collections.min(locations));
-
     }
 
-    private static void processInstructions(Map<String, List<String>> instructionsMap, String key, Map<Long, Long> seedToSoil) {
+    private static Long processStep(Map<String, List<String>> instructionsMap, String key, Long seed) {
+        Map<Long, Long> stepMap = new HashMap<>();
         for (String s : instructionsMap.get(key)) {
             List<Long> instrucionList = extractNumbers(s);
             for (int i = 0; i < instrucionList.get(2); i++) {
-                seedToSoil.putIfAbsent(instrucionList.get(1) + i, instrucionList.get(0) + i);
+                stepMap.putIfAbsent(instrucionList.get(1) + i, instrucionList.get(0) + i);
             }
         }
+        return stepMap.getOrDefault(seed, seed);
     }
 
     private static List<Long> extractNumbers(String input) {
