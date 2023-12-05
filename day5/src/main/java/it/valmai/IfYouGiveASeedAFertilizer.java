@@ -4,15 +4,15 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Main {
+public class IfYouGiveASeedAFertilizer {
 
     public static void main(String[] args) {
 
-        List<String> lines = AocInputReader.getLinesFromInput("input.txt");
+        List<String> lines = AocInputReader.getLinesFromInput("test.txt");
         List<List<String>> instructions = divideList(lines);
         Map<String, List<String>> instructionsMap = new HashMap<>();
-
         List<Long> seeds = extractNumbers(instructions.get(0).get(0));
+        Long minimumLocationPart2 = null;
 
         for (int i = 1; i < instructions.size(); i++) {
             String instruction = instructions.get(i).get(0).replace(" map:", "");
@@ -26,7 +26,28 @@ public class Main {
             System.out.println(entry.getKey() + ": " + entry.getValue());
         }
 
-        List<Long> locations = seeds.stream()
+        for (int i = 0; i < seeds.size(); i += 2) {
+            Long currentSeed = seeds.get(i);
+            for (int j = 0; j < seeds.get(i + 1); j++) {
+                Long processed = Optional.of(currentSeed+j)
+                        .map(seed -> processStep(instructionsMap, "seed-to-soil", seed))
+                        .map(soil -> processStep(instructionsMap, "soil-to-fertilizer", soil))
+                        .map(fertilizer -> processStep(instructionsMap, "fertilizer-to-water", fertilizer))
+                        .map(water -> processStep(instructionsMap, "water-to-light", water))
+                        .map(light -> processStep(instructionsMap, "light-to-temperature", light))
+                        .map(temperature -> processStep(instructionsMap, "temperature-to-humidity", temperature))
+                        .map(humidity -> processStep(instructionsMap, "humidity-to-location", humidity)).get();
+                if (minimumLocationPart2 == null) {
+                    minimumLocationPart2 = processed;
+                } else {
+                    if (processed < minimumLocationPart2) {
+                        minimumLocationPart2 = processed;
+                    }
+                }
+            }
+        }
+
+        List<Long> locations = seeds.parallelStream()
                 .map(seed -> processStep(instructionsMap, "seed-to-soil", seed))
                 .map(soil -> processStep(instructionsMap, "soil-to-fertilizer", soil))
                 .map(fertilizer -> processStep(instructionsMap, "fertilizer-to-water", fertilizer))
@@ -37,14 +58,18 @@ public class Main {
                 .toList();
 
         System.out.println("Location is: " + Collections.min(locations));
+        System.out.println("Location is: " + minimumLocationPart2);
     }
 
     private static Long processStep(Map<String, List<String>> instructionsMap, String key, Long seed) {
+        System.out.println("Step :" + key);
         Map<Long, Long> stepMap = new HashMap<>();
         for (String s : instructionsMap.get(key)) {
-            List<Long> instrucionList = extractNumbers(s);
-            for (int i = 0; i < instrucionList.get(2); i++) {
-                stepMap.putIfAbsent(instrucionList.get(1) + i, instrucionList.get(0) + i);
+            List<Long> instructionList = extractNumbers(s);
+            for (int i = 0; i < instructionList.get(2); i++) {
+                if (instructionList.get(1) + i == seed) {
+                    stepMap.putIfAbsent(instructionList.get(1) + i, instructionList.get(0) + i);
+                }
             }
         }
         return stepMap.getOrDefault(seed, seed);
@@ -75,5 +100,4 @@ public class Main {
         }
         return resultLists;
     }
-
 }
