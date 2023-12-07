@@ -15,3 +15,5 @@ Something is wrong with global snow production, and you've been selected to take
 --- Day 3: Gear Ratios          ⭐⭐
 --- Day 4: Scratchcards         ⭐⭐
 --- Day 5: If You Give a Seed a Fertilizer  ⭐⭐         
+--- Day 6: Wait For It  ⭐⭐         
+--- Day 7: Camel Cards  ⭐⭐         
