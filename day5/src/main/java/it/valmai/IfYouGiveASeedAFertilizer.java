@@ -20,12 +20,16 @@ public class IfYouGiveASeedAFertilizer {
             }
         }
 
+        // Part 1
+        List<Long> locations = allProcess(seeds.parallelStream(), instructionsMap).toList();
+        System.out.println("Location seeds is: " + Collections.min(locations));
+
         // Part 2
         Long minimumLocationPart2 = null;
         for (int i = 0; i < seeds.size(); i += 2) {
             Long currentSeed = seeds.get(i);
             for (int j = 0; j < seeds.get(i + 1); j++) {
-                Long processed = allProcess(Optional.of(currentSeed+j).stream(), instructionsMap).findFirst().get();
+                Long processed = allProcess(Optional.of(currentSeed + j).stream(), instructionsMap).findFirst().get();
                 if (minimumLocationPart2 == null) {
                     minimumLocationPart2 = processed;
                 } else {
@@ -35,36 +39,29 @@ public class IfYouGiveASeedAFertilizer {
                 }
             }
         }
-
-        // Part 1
-        List<Long> locations = allProcess(seeds.parallelStream(),instructionsMap).toList();
-
-        System.out.println("Location is: " + Collections.min(locations));
-        System.out.println("Location is: " + minimumLocationPart2);
+        System.out.println("Location seeds range is: " + minimumLocationPart2);
     }
 
     private static Stream<Long> allProcess(Stream<Long> stream, Map<String, List<String>> instructionsMap) {
-        return stream.map(seed -> processStep(instructionsMap, "seed-to-soil", seed))
-                .map(soil -> processStep(instructionsMap, "soil-to-fertilizer", soil))
-                .map(fertilizer -> processStep(instructionsMap, "fertilizer-to-water", fertilizer))
-                .map(water -> processStep(instructionsMap, "water-to-light", water))
-                .map(light -> processStep(instructionsMap, "light-to-temperature", light))
-                .map(temperature -> processStep(instructionsMap, "temperature-to-humidity", temperature))
-                .map(humidity -> processStep(instructionsMap, "humidity-to-location", humidity));
+        return stream.map(seed -> processStep(instructionsMap.get("seed-to-soil"), seed))
+                .map(soil -> processStep(instructionsMap.get("soil-to-fertilizer"), soil))
+                .map(fertilizer -> processStep(instructionsMap.get("fertilizer-to-water"), fertilizer))
+                .map(water -> processStep(instructionsMap.get("water-to-light"), water))
+                .map(light -> processStep(instructionsMap.get("light-to-temperature"), light))
+                .map(temperature -> processStep(instructionsMap.get("temperature-to-humidity"), temperature))
+                .map(humidity -> processStep(instructionsMap.get("humidity-to-location"), humidity));
     }
 
-    private static Long processStep(Map<String, List<String>> instructionsMap, String key, Long seed) {
-        System.out.println("Step :" + key);
-        Map<Long, Long> stepMap = new HashMap<>();
-        for (String s : instructionsMap.get(key)) {
-            List<Long> instructionList = AocInputReader.extractLongs(s);
-            for (int i = 0; i < instructionList.get(2); i++) {
-                if (instructionList.get(1) + i == seed) {
-                    stepMap.putIfAbsent(instructionList.get(1) + i, instructionList.get(0) + i);
-                }
+    private static Long processStep(List<String> instructionsMap, Long seed) {
+        for (String string : instructionsMap) {
+            List<Long> numbers = AocInputReader.extractLongs(string);
+            Long d = numbers.get(0);
+            Long s = numbers.get(1);
+            Long r = numbers.get(2);
+            if (seed < (s + r) && seed >= s) {
+                return seed - s + d;
             }
         }
-        return stepMap.getOrDefault(seed, seed);
+        return seed;
     }
-
 }
