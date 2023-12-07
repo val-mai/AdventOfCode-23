@@ -24,12 +24,13 @@
 
     <modules>
         <module>utils</module>
-        <module>day1</module>
-        <module>day2</module>
-        <module>day3</module>
-        <module>day4</module>
-        <module>day5</module>
-        <module>day6</module>
-        <module>day7</module>
+        <module>day01</module>
+        <module>day02</module>
+        <module>day03</module>
+        <module>day04</module>
+        <module>day05</module>
+        <module>day06</module>
+        <module>day07</module>
+        <module>day08</module>
     </modules>
 </project>
