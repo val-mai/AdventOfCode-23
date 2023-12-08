@@ -10,10 +10,11 @@ Check-out more on https://adventofcode.com/  #AdventOfCode
 
 Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
 
---- Day 1: Trebuchet?! ⭐⭐ | [Link](https://adventofcode.com/2023/day/1) | [My Code](day01/src/main/java/it/valmai/) |       
---- Day 2: Cube Conundrum  ⭐⭐ | [Link](https://adventofcode.com/2023/day/2) | [My Code](day02/src/main/java/it/valmai/) |         
---- Day 3: Ger Ratios ⭐⭐ | [Link](https://adventofcode.com/2023/day/3) | [My Code](day03/src/main/java/it/valmai/) |       
---- Day 4: Scratchcards ⭐⭐ | [Link](https://adventofcode.com/2023/day/4) | [My Code](day04/src/main/java/it/valmai/) |         
---- Day 5: If You Give a Seed a Fertilizer ⭐⭐ | [Link](https://adventofcode.com/2023/day/1) | [My Code](day05/src/main/java/it/valmai/) |       
---- Day 6: Wait For It  ⭐⭐ | [Link](https://adventofcode.com/2023/day/6) | [My Code](day06/src/main/java/it/valmai/) |       
---- Day 7: Camel Cards  ⭐⭐ | [Link](https://adventofcode.com/2023/day/7) | [My Code](day07/src/main/java/it/valmai/) |  
+--- Day 1: Trebuchet?! ⭐⭐ | [Link](https://adventofcode.com/2023/day/1) | [My Code](day01/src/main/java/it/valmai/Trebuchet.java) |       
+--- Day 2: Cube Conundrum  ⭐⭐ | [Link](https://adventofcode.com/2023/day/2) | [My Code](day02/src/main/java/it/valmai/CubeConundrum.java) |         
+--- Day 3: Ger Ratios ⭐⭐ | [Link](https://adventofcode.com/2023/day/3) | [My Code](day03/src/main/java/it/valmai/GearRatios.java) |       
+--- Day 4: Scratchcards ⭐⭐ | [Link](https://adventofcode.com/2023/day/4) | [My Code](day04/src/main/java/it/valmai/Scratchcards.java) |         
+--- Day 5: If You Give a Seed a Fertilizer ⭐⭐ | [Link](https://adventofcode.com/2023/day/5) | [My Code](day05/src/main/java/it/valmai/IfYouGiveASeedAFertilizer.java) |       
+--- Day 6: Wait For It  ⭐⭐ | [Link](https://adventofcode.com/2023/day/6) | [My Code](day06/src/main/java/it/valmai/WaitForIt.java) |       
+--- Day 7: Camel Cards  ⭐⭐ | [Link](https://adventofcode.com/2023/day/7) | [My Code](day07/src/main/java/it/valmai/CamelCard.java) |  
+--- Day 8: Haunted Wasteland ⭐⭐ | [Link](https://adventofcode.com/2023/day/8) | [My Code](day08/src/main/java/it/valmai/) |  
