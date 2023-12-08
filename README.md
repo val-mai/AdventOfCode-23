@@ -10,10 +10,10 @@ Check-out more on https://adventofcode.com/  #AdventOfCode
 
 Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
 
---- [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1)   ---   [⭐⭐](day01/src/main/java/it/valmai)         
---- [Day 2: Cube Conundrum](https://adventofcode.com/2023/day/2)  --- ⭐⭐         
---- [Day 3: Ger Ratios](https://adventofcode.com/2023/day/3) --- ⭐⭐         
---- [Day 4: Scratchcards](https://adventofcode.com/2023/day/4) --- ⭐⭐         
---- [Day 5: If You Give a Seed a Fertilizer](https://adventofcode.com/2023/day/5) --- ⭐⭐         
---- [Day 6: Wait For It](https://adventofcode.com/2023/day/6) --- ⭐⭐         
---- [Day 7: Camel Cards](https://adventofcode.com/2023/day/7) --- ⭐⭐      
+--- Day 1: Trebuchet?! ⭐⭐ | [Link](https://adventofcode.com/2023/day/1) | [My Code](day01/src/main/java/it/valmai/) |       
+--- Day 2: Cube Conundrum  ⭐⭐ | [Link](https://adventofcode.com/2023/day/2) | [My Code](day02/src/main/java/it/valmai/) |         
+--- Day 3: Ger Ratios ⭐⭐ | [Link](https://adventofcode.com/2023/day/3) | [My Code](day03/src/main/java/it/valmai/) |       
+--- Day 4: Scratchcards ⭐⭐ | [Link](https://adventofcode.com/2023/day/4) | [My Code](day04/src/main/java/it/valmai/) |         
+--- Day 5: If You Give a Seed a Fertilizer ⭐⭐ | [Link](https://adventofcode.com/2023/day/1) | [My Code](day05/src/main/java/it/valmai/) |       
+--- Day 6: Wait For It  ⭐⭐ | [Link](https://adventofcode.com/2023/day/6) | [My Code](day06/src/main/java/it/valmai/) |       
+--- Day 7: Camel Cards  ⭐⭐ | [Link](https://adventofcode.com/2023/day/7) | [My Code](day07/src/main/java/it/valmai/) |  
