@@ -47,7 +47,7 @@ To get started with this repository, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/val-mai/AdventOfCode-23
+   git clone https://github.com/val-mai/AdventOfCode-23.git
 
 2. Open the project in your favorite Java IDE.
 3. Ensure you have Java installed. The solutions are written in Java 17, but they should work with later versions as well.
