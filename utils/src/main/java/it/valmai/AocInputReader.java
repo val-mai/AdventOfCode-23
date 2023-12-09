@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class AocInputReader {
 
@@ -14,7 +15,7 @@ public class AocInputReader {
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         InputStream is = classloader.getResourceAsStream(input);
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        return reader.lines().toList();
+        return reader.lines().collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static List<List<String>> divideList(List<String> inputList) {
@@ -37,17 +38,19 @@ public class AocInputReader {
     }
 
     public static List<Long> extractLongs(String input) {
-        Pattern pattern = Pattern.compile("\\d+");
+        Pattern pattern = Pattern.compile("[-+]?\\d+");
         Matcher matcher = pattern.matcher(input);
         return matcher.results()
-                .map(match -> Long.parseLong(match.group())).toList();
+                .map(match -> Long.parseLong(match.group()))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static List<Integer> extractIntegers(String input) {
-        Pattern pattern = Pattern.compile("\\d+");
+        Pattern pattern = Pattern.compile("[-+]?\\d+");
         Matcher matcher = pattern.matcher(input);
         return matcher.results()
-                .map(match -> Integer.parseInt(match.group())).toList();
+                .map(match -> Integer.parseInt(match.group()))
+                .collect(Collectors.toCollection(ArrayList::new));
     }
 
 }
