@@ -12,7 +12,7 @@ Check-out more on https://adventofcode.com/  #AdventOfCode
 
 ## Table of Contents
 
-1. [Overwiew](#overview)
+1. [Overview](#overview)
 2. [Project Structure](#project-structure)
 3. [Getting Started](#getting-started)
 
@@ -31,6 +31,7 @@ Something is wrong with global snow production, and you've been selected to take
 - Day 7: Camel Cards  ⭐⭐ | [Link](https://adventofcode.com/2023/day/7) | [My Code](day07/src/main/java/it/valmai/CamelCard.java) |  
 - Day 8: Haunted Wasteland ⭐⭐ | [Link](https://adventofcode.com/2023/day/8) | [My Code](day08/src/main/java/it/valmai/HauntedWasteland.java) |  
 - Day 9: Mirage Maintenance ⭐⭐ | [Link](https://adventofcode.com/2023/day/9) | [My Code](day09/src/main/java/it/valmai/MirageMaintenance.java) |  
+- Day 10: Mirage Maintenance ⭐⭐ | [Link](https://adventofcode.com/2023/day/10) | [My Code](day10/src/main/java/it/valmai/PipeMaze.java) |  
 
 ## Project Structure
 
