@@ -29,7 +29,8 @@ Something is wrong with global snow production, and you've been selected to take
 - Day 5: If You Give a Seed a Fertilizer ⭐⭐ | [Link](https://adventofcode.com/2023/day/5) | [My Code](day05/src/main/java/it/valmai/IfYouGiveASeedAFertilizer.java) |       
 - Day 6: Wait For It  ⭐⭐ | [Link](https://adventofcode.com/2023/day/6) | [My Code](day06/src/main/java/it/valmai/WaitForIt.java) |       
 - Day 7: Camel Cards  ⭐⭐ | [Link](https://adventofcode.com/2023/day/7) | [My Code](day07/src/main/java/it/valmai/CamelCard.java) |  
-- Day 8: Haunted Wasteland ⭐⭐ | [Link](https://adventofcode.com/2023/day/8) | [My Code](day08/src/main/java/it/valmai/) |  
+- Day 8: Haunted Wasteland ⭐⭐ | [Link](https://adventofcode.com/2023/day/8) | [My Code](day08/src/main/java/it/valmai/HauntedWasteland.java) |  
+- Day 9: Mirage Maintenance ⭐⭐ | [Link](https://adventofcode.com/2023/day/9) | [My Code](day09/src/main/java/it/valmai/MirageMaintenance.java) |  
 
 ## Project Structure
 

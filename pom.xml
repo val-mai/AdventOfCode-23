@@ -32,5 +32,7 @@
         <module>day06</module>
         <module>day07</module>
         <module>day08</module>
+        <module>day09</module>
+        <module>day10</module>
     </modules>
 </project>
