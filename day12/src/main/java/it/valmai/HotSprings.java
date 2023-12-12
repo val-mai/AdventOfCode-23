@@ -1,5 +1,6 @@
 package it.valmai;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class HotSprings {
 
     public static void main(String[] args) {
 
-        List<String> lines = AocInputReader.getLinesFromInput("test.txt");
+        List<String> lines = AocInputReader.getLinesFromInput("input.txt");
 
         long totalCombinations = 0;
         for (String line : lines) {
@@ -16,22 +17,59 @@ public class HotSprings {
             List<Integer> numbers = Arrays.stream(line.split( " ")[1].split(","))
                     .map(Integer::parseInt).toList();
 
-            totalCombinations += calculateCombinations(springs, numbers);
+            List<List<Integer>> combinations = generateCombinations(springs);
 
-            System.out.println(springs + " " + numbers);
-            System.out.println(calculateCombinations(springs, numbers));
+            for (List<Integer> combination : combinations) {
+                if (isValid(combination, numbers)) {
+                    totalCombinations++;
+                }
+            }
         }
 
         System.out.println("Total possible combinations is: " + totalCombinations);
     }
 
-    private static long calculateCombinations(String springs, List<Integer> numbers) {
+    private static List<List<Integer>> generateCombinations(String inputStr) {
+        List<List<Integer>> result = new ArrayList<>();
+        recursiveCombinations(new ArrayList<>(), inputStr, result);
+        return result;
+    }
 
-        if (springs.isEmpty()) return (numbers.isEmpty()) ? 1 : 0;
+    private static void recursiveCombinations(List<Integer> currentCombination, String remaining, List<List<Integer>> result) {
+        if (remaining.isEmpty()) {
+            result.add(new ArrayList<>(currentCombination));
+            return;
+        }
 
-        if (numbers.isEmpty()) return (springs.contains("#")) ? 0 : 1;
+        char currentChar = remaining.charAt(0);
 
-        return 5;
+        if (currentChar == '#' || currentChar == '.') {
+            currentCombination.add(currentChar == '#' ? 1 : 0);
+            recursiveCombinations(currentCombination, remaining.substring(1), result);
+            currentCombination.remove(currentCombination.size() - 1);
+        } else if (currentChar == '?') {
+            for (int i = 0; i <= 1; i++) {
+                currentCombination.add(i);
+                recursiveCombinations(currentCombination, remaining.substring(1), result);
+                currentCombination.remove(currentCombination.size() - 1);
+            }
+        } else {
+            currentCombination.add(Character.getNumericValue(currentChar));
+            recursiveCombinations(currentCombination, remaining.substring(1), result);
+            currentCombination.remove(currentCombination.size() - 1);
+        }
+    }
 
+    private static boolean isValid(List<Integer> line, List<Integer> targetRuns) {
+        List<Integer> runs = new ArrayList<>();
+        int n = line.size(), i = 0;
+        while (i < n) {
+            int c = 0;
+            while (i < n && line.get(i++) == 1) c++;
+            if (c > 0) {
+                runs.add(c);
+            }
+        }
+        return runs.equals(targetRuns);
     }
 }
