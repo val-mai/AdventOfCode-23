@@ -33,7 +33,7 @@ Something is wrong with global snow production, and you've been selected to take
 - Day 9: Mirage Maintenance ⭐⭐ | [Link](https://adventofcode.com/2023/day/9) | [My Code](day09/src/main/java/it/valmai/MirageMaintenance.java) |  
 - Day 10: Mirage Maintenance ⭐⭐ | [Link](https://adventofcode.com/2023/day/10) | [My Code](day10/src/main/java/it/valmai/PipeMaze.java) |  
 - Day 11: Cosmic Expansion ⭐⭐ | [Link](https://adventofcode.com/2023/day/11) | [My Code](day11/src/main/java/it/valmai/CosmicExpansion.java) |  
-- Day 12: Hot Springs ⭐⭐ | [Link](https://adventofcode.com/2023/day/12) | [My Code](day12/src/main/java/it/valmai/HotSprings.java) |  
+- Day 12: Hot Springs ⭐ | [Link](https://adventofcode.com/2023/day/12) | [My Code](day12/src/main/java/it/valmai/HotSprings.java) |  
 
 ## Project Structure
 
